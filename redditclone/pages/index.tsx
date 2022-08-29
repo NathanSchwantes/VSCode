@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import type { NextPage } from 'next'
-import Header from '../components/Header.tsx'
+import Header from '../components/Header'
 
 const Home: NextPage = () => {
   return (

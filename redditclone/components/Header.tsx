@@ -46,13 +46,6 @@ const Header = () => {
           <MenuIcon className='icon' onClick={handleBurger}/>
         </div>
     </div>
-    <div className={
-      menu
-      ? 'bg-white'
-      : 'bg-red'
-    }>
-      <h1>testy westy</h1>
-    </div>
   )
 }
 
