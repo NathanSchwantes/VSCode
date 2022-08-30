@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { MenuIcon, ChevronDownIcon, HomeIcon, SearchIcon } from '@heroicons/react/solid'
+import { MenuIcon, ChevronDownIcon, HomeIcon, SearchIcon, XIcon } from '@heroicons/react/solid'
 import { BellIcon, ChatIcon, GlobeIcon, PlusIcon, SparklesIcon, SpeakerphoneIcon, VideoCameraIcon } from '@heroicons/react/outline'
 
 const Header = () => {
@@ -43,11 +43,17 @@ const Header = () => {
         <SpeakerphoneIcon className='icon' />
       </div>
       <div className='ml-5 lg:hidden'>
-        <MenuIcon className='icon' onClick={handleBurger} />
+        <div className={menu ? 'hidden' :''}>
+          <MenuIcon className='icon' onClick={handleBurger}/>
+        </div>
+        <div className={menu ? '' : 'hidden'}>
+          <XIcon className='icon' onClick={handleBurger}/>
+        </div>
       </div>
-    </div><div className={menu
-      ? 'bg-red-900 w-[50%] h-screen fixed right-0'
-      : 'bg-blue-900 w-[50%] h-screen fixed right-0'} />
+    </div>
+    <div className={menu
+      ? 'bg-red-900 w-[50%] h-screen fixed right-0 ease-in duration-300'
+      : 'w-[50%] h-screen fixed right-[-100%] ease-in duration-300'} />
       </>
   )
 }
