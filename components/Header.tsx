@@ -54,6 +54,9 @@ const Header = () => {
     <div className={menu
       ? 'bg-red-900 w-[50%] h-screen fixed right-0 ease-in duration-300'
       : 'w-[50%] h-screen fixed right-[-100%] ease-in duration-300'} />
+      <div className='w-[50%] h-screen fixed right-0'>
+        <MenuIcon className='icon' />
+      </div>
       </>
   )
 }
