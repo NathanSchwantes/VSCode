@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { MenuIcon, ChevronDownIcon, HomeIcon, SearchIcon, XIcon } from '@heroicons/react/solid'
 import { BellIcon, ChatIcon, GlobeIcon, PlusIcon, SparklesIcon, SpeakerphoneIcon, VideoCameraIcon } from '@heroicons/react/outline'
 
+{/* handles the logic of a user click on the burger icon */}
 const Header = () => {
   const [menu, setMenu] = useState(false);
 
@@ -32,6 +33,7 @@ const Header = () => {
         <button hidden type='submit' />
       </form>
 
+      {/* Icon container when screen is large or above */}
       <div className='flex space-x-2 items-center mx-5 text-gray-500 hidden lg:inline-flex'>
         <SparklesIcon className='icon' />
         <GlobeIcon className='icon' />
@@ -42,6 +44,8 @@ const Header = () => {
         <PlusIcon className='icon' />
         <SpeakerphoneIcon className='icon' />
       </div>
+
+      {/* detects click on burger menu */}
       <div className='ml-5 lg:hidden'>
         <div className={menu ? 'hidden' :''}>
           <MenuIcon className='icon' onClick={handleBurger}/>
@@ -51,12 +55,42 @@ const Header = () => {
         </div>
       </div>
     </div>
+
+    {/* Burger menu containers, with same buttons + text */}
     <div className={menu
-      ? 'bg-slate-300 w-[250px] h-screen fixed right-0 ease-in duration-300 lg:hidden'
-      : 'w-[50%] h-screen fixed right-[-100%] ease-in duration-300 lg:hidden'}>
-        <div className='flex justify-center items-center space-x-2 mx-10 my-4 rounded bg-white cursor-pointer hover:scale-105 shadow-lg ease-in duration-200'>
+      ? 'bg-[#ff5700] w-[250px] h-[530px] fixed right-0 rounded-2xl ease-in duration-300 lg:hidden'
+      : 'w-[50%] h-[530px] fixed right-[-100%] ease-in duration-300 lg:hidden'}>
+        <div className='burgericon'>
           <SparklesIcon className='icon' />
           <b>Popular</b>
+        </div>
+        <div className='burgericon'>
+          <GlobeIcon className='icon' />
+          <b>Trending</b>
+        </div>
+        <div className='burgericon'>
+          <SparklesIcon className='icon' />
+          <b>Popular</b>
+        </div>
+        <div className='burgericon'>
+          <VideoCameraIcon className='icon' />
+          <b>Reddit LIVE</b>
+        </div>
+        <div className='burgericon'>
+          <ChatIcon className='icon' />
+          <b>Direct Messages</b>
+        </div>
+        <div className='burgericon'>
+          <BellIcon className='icon' />
+          <b>Notifications</b>
+        </div>
+        <div className='burgericon'>
+          <PlusIcon className='icon' />
+          <b>Upload a Post</b>
+        </div>
+        <div className='burgericon'>
+          <SpeakerphoneIcon className='icon' />
+          <b>Controversial</b>
         </div>
     </div>
       </>

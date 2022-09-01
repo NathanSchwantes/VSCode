@@ -6,4 +6,8 @@
   .icon {
     @apply h-9 w-6 lg:w-9 cursor-pointer rounded-sm lg:p-1 lg:hover:bg-gray-100
   }
+
+  .burgericon {
+    @apply flex justify-center items-center space-x-2 m-5 rounded bg-white cursor-pointer border-4 border-black hover:scale-105 shadow-lg ease-in duration-200
+  }
 }
