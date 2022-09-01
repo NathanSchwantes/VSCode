@@ -52,8 +52,13 @@ const Header = () => {
       </div>
     </div>
     <div className={menu
-      ? 'bg-red-900 w-[50%] h-screen fixed right-0 ease-in duration-300'
-      : 'w-[50%] h-screen fixed right-[-100%] ease-in duration-300'} />
+      ? 'bg-slate-300 w-[250px] h-screen fixed right-0 ease-in duration-300 lg:hidden'
+      : 'w-[50%] h-screen fixed right-[-100%] ease-in duration-300 lg:hidden'}>
+        <div className='flex justify-center items-center space-x-2 mx-10 my-4 rounded bg-white cursor-pointer hover:scale-105 shadow-lg ease-in duration-200'>
+          <SparklesIcon className='icon' />
+          <b>Popular</b>
+        </div>
+    </div>
       </>
   )
 }
