@@ -8,7 +8,7 @@ const Home: NextPage = () => {
     <div className=''>
       <Head>
         <title>Reddit 2.0 Clone</title>
-        <link rel='icon' href='reddit-icon.png' />
+        <link rel='icon' href='reddit-sm-icon.png' />
       </Head>
       <Header />
     </div>
