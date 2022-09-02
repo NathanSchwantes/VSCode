@@ -17,7 +17,7 @@ const Header = () => {
       <div className='relative h-10 w-20 flex-shrink-0 cursor-pointer'>
         <Image
           objectFit='contain'
-          src='/../public/reddit-logo.png'
+          src='/reddit-logo.png'
           layout='fill' />
       </div>
       <div className='mx-7 flex items-center xl:min-w-[300px]'>
@@ -58,12 +58,8 @@ const Header = () => {
 
     {/* Burger menu containers, with same buttons + text */}
     <div className={menu
-      ? 'bg-[#ff5700] w-[250px] h-[530px] fixed right-0 rounded-2xl ease-in duration-300 lg:hidden'
-      : 'w-[50%] h-[530px] fixed right-[-100%] ease-in duration-300 lg:hidden'}>
-        <div className='burgericon'>
-          <SparklesIcon className='icon' />
-          <b>Popular</b>
-        </div>
+      ? 'bg-[#ff5700] w-[250px] h-[470px] fixed right-0 rounded-2xl ease-in duration-300 lg:hidden'
+      : 'w-[50%] h-[470px] fixed right-[-100%] ease-in duration-300 lg:hidden'}>
         <div className='burgericon'>
           <GlobeIcon className='icon' />
           <b>Trending</b>
