@@ -2,9 +2,12 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { MenuIcon, ChevronDownIcon, HomeIcon, SearchIcon, XIcon } from '@heroicons/react/solid'
 import { BellIcon, ChatIcon, GlobeIcon, PlusIcon, SparklesIcon, SpeakerphoneIcon, VideoCameraIcon } from '@heroicons/react/outline'
+import { signIn, signOut, useSession } from 'next-auth/react'
 
 {/* handles the logic of a user click on the burger icon */}
 const Header = () => {
+  const { data: session } = useSession();
+
   const [menu, setMenu] = useState(false);
 
   const handleBurger = () => {
@@ -14,10 +17,16 @@ const Header = () => {
   return (
     <>
     <div className='sticky top-0 z-50 flex bg-white px-4 py-2 shadow-sm'>
-      <div className='relative h-10 w-20 flex-shrink-0 cursor-pointer'>
+      <div className='relative h-10 w-20 flex-shrink-0 cursor-pointer hidden md:inline lg:inline'>
         <Image
           objectFit='contain'
           src='/reddit-logo.png'
+          layout='fill' />
+      </div>
+      <div className='relative h-10 w-10 flex-shrink-0 cursor-pointer md:hidden lg:hidden'>
+        <Image
+          objectFit='contain'
+          src='/reddit-sm-icon.png'
           layout='fill' />
       </div>
       <div className='mx-7 flex items-center xl:min-w-[300px]'>
@@ -27,7 +36,7 @@ const Header = () => {
       </div>
 
       {/* Search box */}
-      <form className='flex flex-1 items-center space-x-2 border-gray-200 rounded-sm bg-gray-100 px-3 py-1'>
+      <form className='flex flex-auto w-15 items-center space-x-2 border-gray-200 rounded-sm bg-gray-100 px-3 py-1'>
         <SearchIcon className='h-6 w-6 text-gray-400' />
         <input className='flex-1 bg-transparent outline-none' type='text' placeholder='Search Reddit' />
         <button hidden type='submit' />
@@ -54,6 +63,37 @@ const Header = () => {
           <XIcon className='icon' onClick={handleBurger}/>
         </div>
       </div>
+
+        {/* Sign in/sign out button*/}
+      {session ? (
+        <div onClick={() => signOut()} className='hidden items-center space-x-2 border-2 border-gray-400 rounded-lg p-2 cursor-pointer lg:flex hover:bg-orange-300 ease-in duration-100'>
+          <div className='relative h-5 w-5 flex-shrink-0'>
+            <Image
+              src='https://links.papareact.com/23l'
+              layout='fill'
+              alt=''
+              />
+            </div>
+            
+            <div className='flex-1 text-xs'>
+              <p className='truncate'>{session?.user?.name}</p>
+              <p>1 Karma</p>
+            </div>
+
+            <ChevronDownIcon className='h-5 flex-shrink-0 text-gray-400'/>
+        </div>
+      ) : (
+        <div onClick={() => signIn()} className='hidden items-center space-x-2 border-2 border-gray-400 rounded-lg p-2 cursor-pointer lg:flex hover:bg-orange-300 ease-in duration-100'>
+          <div className='relative h-5 w-5 flex-shrink-0'>
+            <Image
+              src='https://links.papareact.com/23l'
+              layout='fill'
+              alt=''
+              />
+            </div>
+            <p>Sign In</p>
+        </div>
+      )}
     </div>
 
     {/* Burger menu containers, with same buttons + text */}
@@ -89,7 +129,7 @@ const Header = () => {
           <b>Controversial</b>
         </div>
     </div>
-      </>
+    </>
   )
 }
 
